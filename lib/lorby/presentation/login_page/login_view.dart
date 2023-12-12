@@ -4,7 +4,7 @@ import 'package:neobis_flutter_chapter7/lorby/core/consts/assets_consts.dart';
 import 'package:neobis_flutter_chapter7/lorby/core/consts/colors_consts.dart';
 import 'package:neobis_flutter_chapter7/lorby/core/consts/routes_consts.dart';
 import 'package:neobis_flutter_chapter7/lorby/core/consts/text_styles_consts.dart';
-import 'package:neobis_flutter_chapter7/lorby/presentation/common_widgets/common_widgets_extension.dart';
+import 'package:neobis_flutter_chapter7/lorby/dependencies/common_widgets/common_widgets_extension.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});

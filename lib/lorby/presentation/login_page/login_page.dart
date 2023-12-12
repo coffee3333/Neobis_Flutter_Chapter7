@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:neobis_flutter_chapter7/lorby/dependencies/container/di_container.dart';
 import 'package:neobis_flutter_chapter7/lorby/presentation/login_page/login_view.dart';
 
 class LoginPage extends StatelessWidget {
@@ -7,6 +6,6 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return getIt.get<LoginView>();
+    return const LoginView();
   }
 }

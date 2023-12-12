@@ -46,4 +46,22 @@ class TextStylesConsts {
     height: 1.67,
     letterSpacing: 0.0,
   );
+
+  static const TextStyle lv12GreenText = TextStyle(
+    fontFamily: 'Mplus',
+    color: ColorsConsts.greenIndicatorColor,
+    fontSize: 12,
+    fontWeight: FontWeight.w500,
+    height: 1.67,
+    letterSpacing: 0.0,
+  );
+
+  static const TextStyle lv12RedText = TextStyle(
+    fontFamily: 'Mplus',
+    color: ColorsConsts.redIndicatorColor,
+    fontSize: 12,
+    fontWeight: FontWeight.w500,
+    height: 1.67,
+    letterSpacing: 0.0,
+  );
 }

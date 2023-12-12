@@ -12,6 +12,11 @@ mixin CustomWidgetExtension {
         borderSide: BorderSide.none,
         borderRadius: BorderRadius.circular(12),
       ),
+      focusedBorder: OutlineInputBorder(
+        borderSide:
+            const BorderSide(color: ColorsConsts.lv2GrayTextColor, width: 1.0),
+        borderRadius: BorderRadius.circular(12),
+      ),
       suffixIcon: iconButton,
     );
   }
