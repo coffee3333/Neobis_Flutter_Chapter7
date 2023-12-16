@@ -29,6 +29,15 @@ class TextStylesConsts {
     letterSpacing: 0.0,
   );
 
+  static const TextStyle lv16RedText = TextStyle(
+    fontFamily: 'Mplus',
+    color: ColorsConsts.redIndicatorColor,
+    fontSize: 16.0,
+    fontWeight: FontWeight.w500,
+    height: 1.5,
+    letterSpacing: 0.0,
+  );
+
   static const TextStyle lv20GrayText = TextStyle(
     fontFamily: 'Mplus',
     color: ColorsConsts.mainGrayTextColor,

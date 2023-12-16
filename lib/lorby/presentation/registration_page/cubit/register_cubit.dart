@@ -1,5 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
+import 'package:neobis_flutter_chapter7/lorby/dependencies/container/di_container.dart';
+import 'package:neobis_flutter_chapter7/lorby/domain/models/register/register_model.dart';
+import 'package:neobis_flutter_chapter7/lorby/domain/models/register/registered_model.dart';
+import 'package:neobis_flutter_chapter7/lorby/domain/use_cases/register/register_use_case.dart';
 import 'package:neobis_flutter_chapter7/lorby/presentation/registration_page/cubit/register_validation.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -7,6 +11,9 @@ part 'register_state.dart';
 
 class RegisterCubit extends Cubit<RegisterState> with RegisterValidation {
   RegisterCubit() : super(RegisterInitial());
+
+  late RegisterModel registerModel;
+  final RegisterUseCase registerCase = getIt.get<RegisterUseCase>();
   final String _errorMsg = "Error empty data";
 
   //Text field controllers
@@ -97,6 +104,25 @@ class RegisterCubit extends Cubit<RegisterState> with RegisterValidation {
         repeatPasswordStream,
         (a, b, c, d) => true,
       );
+
+  //RegistrationEvent
+  void registerEvent() async {
+    emit(RegistartionIsLoading());
+    registerModel = RegisterModel(
+        mail: _mailController.value,
+        login: _loginController.value,
+        pass: _passwordController.value);
+    final RegisteredModel response = await registerCase.call(registerModel);
+
+    if (response.login != null && response.mail != null) {
+      print("registered");
+      emit(RegistrationDone());
+    } else if (response.errors != null) {
+      emit(RegistartionError(response.errors!));
+    } else {
+      print("unexpected error");
+    }
+  }
 
   void _dispose() {
     _mailController.close();
